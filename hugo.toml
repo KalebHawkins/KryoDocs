@@ -1,0 +1,44 @@
+baseURL = "https://kalebhawkins.github.io/KryoDocs/"
+locale = "en-US"
+title = "KryoDocs"
+enableRobotsTXT = true
+
+[params]
+  handle = "kryotek"
+  tagline = "Notes, write-ups, and progress logs: game hacking, Go, and Hack The Box."
+  inITSince = 2014
+  resume = "https://kalebhawkins.github.io/resume/"
+  github = "https://github.com/KalebHawkins"
+
+[taxonomies]
+  tag = "tags"
+
+[markup.highlight]
+  style = "github-dark"
+  noClasses = true
+
+[menus]
+  [[menus.main]]
+    name = "home"
+    pageRef = "/"
+    weight = 1
+  [[menus.main]]
+    name = "writeups"
+    pageRef = "/writeups"
+    weight = 2
+  [[menus.main]]
+    name = "notes"
+    pageRef = "/notes"
+    weight = 3
+  [[menus.main]]
+    name = "projects"
+    pageRef = "/projects"
+    weight = 4
+  [[menus.main]]
+    name = "journey"
+    pageRef = "/journey"
+    weight = 5
+  [[menus.main]]
+    name = "books"
+    pageRef = "/books"
+    weight = 6

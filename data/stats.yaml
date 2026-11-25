@@ -1,0 +1,45 @@
+# Numbers shown on the home page. Edited by hand for now; kryostats will
+# generate this file later.
+updated: "2026-11-25"
+
+htb:
+  profile: https://app.hackthebox.com/users/2115544
+  level: 55
+  xp: 1496
+  xp_next: 1542
+  rank: Professional
+  machines: 11
+  sherlocks: 1
+  challenges: 4
+  challenge_breakdown: "gamepwn 3 · rev 1"
+  academy_modules: 38
+  academy_paths: 3
+
+exercism:
+  profile: https://exercism.org/profiles/KryptekVoid
+  track: go
+  done: 24
+  total: 168
+  concepts: 22
+  reputation: 128
+  published: 24
+  prs: 11
+  pr_note: "powershell (8) and go (3) tracks · 2021"
+
+github:
+  profile: https://github.com/KalebHawkins
+  since: 2015
+  repos: 11
+  go_repos: 8
+  contributions_year: 111
+  # Contributions per month for the activity grid, January first.
+  monthly:
+    year: 2026
+    counts: [0, 16, 0, 6, 0, 0, 0, 0, 15, 17, 57, 0]
+  recent:
+    - name: hxd
+      date: "2026-11-25"
+    - name: kryostate
+      date: "2026-11-19"
+    - name: zero
+      date: "2026-11-07"

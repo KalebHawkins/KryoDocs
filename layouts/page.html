@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ if and (eq .Section "writeups") (not .Params.retired) }}
+  {{ errorf "%s: write-ups must set retired: true (HTB only allows write-ups for retired content)" .File.Path }}
+{{ end }}
+{{ partial "prompt.html" (printf "cat %s" (strings.TrimPrefix "/" .RelPermalink)) }}
+<article class="article">
+<header>
+<h1 class="page-title">{{ .Title }}</h1>
+<p class="muted small">
+{{ .Date.Format "2006-01-02" }}
+{{ with .Params.kind }} · {{ . }}{{ end }}{{ with .Params.os }} · {{ . }}{{ end }}{{ with .Params.difficulty }} · {{ . }}{{ end }}
+{{ with .GetTerms "tags" }} · {{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ $t.RelPermalink }}">#{{ $t.LinkTitle }}</a>{{ end }}{{ end }}
+</p>
+</header>
+{{ if and (gt .WordCount 400) .TableOfContents }}
+<nav class="toc panel" aria-label="On this page">
+<h2 class="panel-title">[ toc ]</h2>
+{{ .TableOfContents }}
+</nav>
+{{ end }}
+<div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}

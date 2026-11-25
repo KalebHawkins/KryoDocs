@@ -1,0 +1,5 @@
+{{/* Text progress bar. Pass dict "value" "max" "width". */}}
+{{ $width := .width | default 20 }}
+{{ $filled := 0 }}
+{{ if gt .max 0 }}{{ $filled = int (math.Round (div (mul (float .value) $width) .max)) }}{{ end }}
+<span class="bar" aria-hidden="true"><span class="accent">{{ strings.Repeat $filled "█" }}</span><span class="dim">{{ strings.Repeat (sub $width $filled) "█" }}</span></span>

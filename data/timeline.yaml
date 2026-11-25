@@ -1,0 +1,230 @@
+# Timeline entries, oldest first. source: cert | academy | labs | exercism | go | self
+
+- date: "2013-05-23"
+  source: cert
+  text: "CompTIA A+"
+- date: "2013-08-15"
+  source: cert
+  text: "CompTIA Network+"
+- date: "2013-10-17"
+  source: cert
+  text: "CompTIA Linux+ (Powered by LPI)"
+- date: "2016-07-20"
+  source: cert
+  text: "CompTIA Security+"
+- date: "2019-06-05"
+  source: cert
+  text: "CompTIA CySA+"
+- date: "2021-11-05"
+  source: exercism
+  text: "PR merged: go#1942, gross-store test case"
+- date: "2021-11-09"
+  source: exercism
+  text: "PR merged: go#1951, Elon's Toys & Need for Speed"
+- date: "2021-11-10"
+  source: exercism
+  text: "PRs merged: powershell#161, #164, #165, #167 (getting-started guide, configlet, CI)"
+- date: "2021-11-12"
+  source: exercism
+  text: "PRs merged: powershell#166 (Accumulate exercise), #168 (run-tests CI)"
+- date: "2021-11-17"
+  source: exercism
+  text: "PRs merged: go#1966 (vehicle-purchase fix), powershell#170 (Collatz Conjecture exercise)"
+- date: "2021-11-19"
+  source: exercism
+  text: "PR merged: powershell#171, Accumulate test cases"
+- date: "2024-05-19"
+  source: exercism
+  text: "Joined the Go track"
+- date: "2024-10-18"
+  source: academy
+  text: "Intro to Academy"
+- date: "2024-10-19"
+  source: academy
+  text: "Learning Process"
+- date: "2024-10-20"
+  source: academy
+  text: "Setting Up"
+- date: "2024-10-22"
+  source: academy
+  text: "Linux Fundamentals"
+- date: "2024-10-23"
+  source: academy
+  text: "Windows Fundamentals"
+- date: "2024-10-29"
+  source: academy
+  text: "Introduction to Networking"
+- date: "2025-06-20"
+  source: academy
+  text: "Intro to Network Traffic Analysis"
+- date: "2025-10-19"
+  source: academy
+  text: "1 year on HTB Academy"
+- date: "2026-01-08"
+  source: academy
+  text: "Introduction to Active Directory"
+- date: "2026-01-12"
+  source: academy
+  text: "Introduction to Web Applications"
+- date: "2026-01-12"
+  source: academy
+  text: "Web Requests"
+- date: "2026-01-14"
+  source: academy
+  text: "Network Enumeration with Nmap"
+- date: "2026-01-16"
+  source: academy
+  text: "Introduction to Bash Scripting"
+- date: "2026-01-16"
+  source: academy
+  text: "Introduction to Windows Command Line"
+- date: "2026-01-16"
+  source: academy
+  text: "Path: Information Security Foundations"
+- date: "2026-01-18"
+  source: academy
+  text: "File Inclusion"
+- date: "2026-01-21"
+  source: academy
+  text: "Login Brute Forcing"
+- date: "2026-01-22"
+  source: academy
+  text: "Getting Started"
+- date: "2026-01-23"
+  source: academy
+  text: "Attacking Web Applications with Ffuf"
+- date: "2026-01-26"
+  source: academy
+  text: "Cracking Passwords with Hashcat"
+- date: "2026-01-26"
+  source: academy
+  text: "Mission: VMX Hash Cracking"
+- date: "2026-01-27"
+  source: academy
+  text: "SQLMap Essentials"
+- date: "2026-01-28"
+  source: academy
+  text: "Introduction to Information Security"
+- date: "2026-01-28"
+  source: academy
+  text: "Using Web Proxies"
+- date: "2026-01-28"
+  source: academy
+  text: "Introduction to Penetration Testing"
+- date: "2026-01-28"
+  source: academy
+  text: "Network Foundations"
+- date: "2026-01-28"
+  source: academy
+  text: "Path: Basic Toolset"
+- date: "2026-01-30"
+  source: academy
+  text: "Pentest in a Nutshell"
+- date: "2026-02-05"
+  source: academy
+  text: "Footprinting"
+- date: "2026-02-07"
+  source: academy
+  text: "Hacking WordPress"
+- date: "2026-02-11"
+  source: academy
+  text: "Using the Metasploit Framework"
+- date: "2026-02-12"
+  source: academy
+  text: "Incident Handling Process"
+- date: "2026-02-12"
+  source: labs
+  text: "Sherlock: Learn Sigma"
+- date: "2026-02-17"
+  source: academy
+  text: "Windows Event Logs & Finding Evil"
+- date: "2026-02-19"
+  source: academy
+  text: "Security Monitoring & SIEM Fundamentals"
+- date: "2026-02-20"
+  source: academy
+  text: "Introduction to Threat Hunting & Hunting With Elastic"
+- date: "2026-02-20"
+  source: academy
+  text: "Path: Junior Cybersecurity Analyst"
+- date: "2026-02-25"
+  source: academy
+  text: "Penetration Testing Process"
+- date: "2026-02-25"
+  source: labs
+  text: "Machine: Cap"
+- date: "2026-02-26"
+  source: labs
+  text: "Machine: WingData"
+- date: "2026-02-27"
+  source: academy
+  text: "Documentation & Reporting"
+- date: "2026-02-28"
+  source: labs
+  text: "Machine: Facts"
+- date: "2026-03-01"
+  source: labs
+  text: "Machine: MonitorsFour"
+- date: "2026-03-01"
+  source: labs
+  text: "Machine: Eighteen"
+- date: "2026-03-08"
+  source: labs
+  text: "Machine: Conversor"
+- date: "2026-03-08"
+  source: labs
+  text: "Machine: CCTV"
+- date: "2026-03-10"
+  source: cert
+  text: "HTB CJCA certification"
+- date: "2026-03-12"
+  source: labs
+  text: "Machine: Expressway"
+- date: "2026-03-14"
+  source: labs
+  text: "Machine: TwoMillion"
+- date: "2026-03-20"
+  source: academy
+  text: "Information Gathering - Web Edition"
+- date: "2026-03-30"
+  source: academy
+  text: "12-week streak (personal best)"
+- date: "2026-08-03"
+  source: academy
+  text: "Vulnerability Assessment"
+- date: "2026-08-03"
+  source: academy
+  text: "Fundamentals of AI"
+- date: "2026-08-21"
+  source: academy
+  text: "File Transfers"
+- date: "2026-10-19"
+  source: academy
+  text: "2 years on HTB Academy"
+- date: "2026-11-23"
+  source: self
+  text: "Cheat Engine tutorial (steps 1–9) + graphical tutorial"
+- date: "2026-11-24"
+  source: academy
+  text: "Game Hacking Fundamentals"
+- date: "2026-11-24"
+  source: labs
+  text: "Challenge (GamePwn): CubeMadness1"
+- date: "2026-11-24"
+  source: labs
+  text: "Challenge (GamePwn): HackyBird"
+- date: "2026-11-24"
+  source: labs
+  text: "Machine: Blue"
+- date: "2026-11-25"
+  source: go
+  text: "hxd complete: Go hexdump clone"
+- date: "2026-11-25"
+  source: labs
+  text: "Challenge (GamePwn): CubeMadness2"
+- date: "2026-11-25"
+  source: labs
+  text: "Machine: Legacy"
+- date: "2026-11-25"
+  source: labs
+  text: "Challenge (Reversing): SpookyPass"

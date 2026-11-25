@@ -1,0 +1,7 @@
+{{ define "main" }}
+{{ partial "prompt.html" (printf "grep -l '#%s'" .Title) }}
+<h1 class="page-title">#{{ .Title }}</h1>
+{{ range .Pages }}
+<p class="row"><span class="muted">{{ .Date.Format "2006-01-02" }}</span>  <a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="muted">· {{ .Section }}</span></p>
+{{ end }}
+{{ end }}

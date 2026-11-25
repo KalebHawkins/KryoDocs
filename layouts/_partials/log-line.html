@@ -1,0 +1,2 @@
+{{ $colors := dict "academy" "purple" "labs" "amber" "cert" "coral" "exercism" "blue" "go" "blue" "self" "blue" }}
+<p class="row"><span class="muted">{{ .date }}</span>  <span class="{{ index $colors .source | default "muted" }}">{{ printf "%-10s" (printf "[%s]" .source) }}</span> {{ .text }}</p>

@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ partial "prompt.html" (printf "ls -l %s/" .Section) }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+{{ with .Pages }}
+<div class="scroll">
+<table class="ls">
+<thead><tr><th>name</th><th>date</th><th>summary</th></tr></thead>
+<tbody>
+{{ range . }}
+<tr>
+<td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+<td class="muted">{{ .Date.Format "2006-01-02" }}</td>
+<td class="muted">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 90 }}{{ end }}</td>
+</tr>
+{{ end }}
+</tbody>
+</table>
+</div>
+{{ else }}
+<p class="muted">total 0</p>
+{{ end }}
+{{ end }}

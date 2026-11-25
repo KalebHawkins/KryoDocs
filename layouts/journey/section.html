@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ partial "prompt.html" "cat journey.log" }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+<section class="panel">
+<h2 class="panel-title">[ activity · by source ]</h2>
+{{ partial "activity.html" . }}
+</section>
+
+<section class="panel">
+<h2 class="panel-title">[ journey.log · newest first ]</h2>
+<div class="scroll">
+{{ $byYear := slice }}
+{{ $lastYear := "" }}
+{{ range sort hugo.Data.timeline "date" "desc" }}
+{{ $y := substr .date 0 4 }}
+{{ if ne $y $lastYear }}<h3 class="year">{{ $y }}</h3>{{ $lastYear = $y }}{{ end }}
+{{ partial "log-line.html" . }}
+{{ end }}
+</div>
+</section>
+{{ end }}

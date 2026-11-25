@@ -1,0 +1,29 @@
+# status: active | expired | undated
+- name: HTB CJCA
+  issuer: Hack The Box
+  date: "2026-03-10"
+  status: active
+- name: CompTIA CySA+
+  issuer: CompTIA
+  date: "2019-06-05"
+  status: expired
+- name: CompTIA Security+
+  issuer: CompTIA
+  date: "2016-07-20"
+  status: expired
+- name: CompTIA Linux+
+  issuer: CompTIA
+  date: "2013-10-17"
+  status: active
+- name: CompTIA Network+
+  issuer: CompTIA
+  date: "2013-08-15"
+  status: expired
+- name: CompTIA A+
+  issuer: CompTIA
+  date: "2013-05-23"
+  status: expired
+- name: VMware VCA-DCV
+  issuer: VMware
+  date: ""
+  status: undated

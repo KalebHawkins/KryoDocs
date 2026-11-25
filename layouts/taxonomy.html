@@ -1,0 +1,7 @@
+{{ define "main" }}
+{{ partial "prompt.html" "ls tags/" }}
+<h1 class="page-title">Tags</h1>
+<div class="tags">
+{{ range .Data.Terms.ByCount }}<a href="{{ .Page.RelPermalink }}">#{{ .Page.LinkTitle }} <span class="muted">({{ .Count }})</span></a> {{ end }}
+</div>
+{{ end }}

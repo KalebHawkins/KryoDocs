@@ -1,0 +1,11 @@
+# status: done | next | planned
+- name: hxd
+  status: done
+  summary: hexdump in go
+  page: /projects/hxd/
+- name: kryostats
+  status: next
+  summary: stats for this site, nightly
+- name: proclist
+  status: planned
+  summary: processes + modules

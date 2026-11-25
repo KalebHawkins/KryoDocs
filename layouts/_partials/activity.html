@@ -1,0 +1,52 @@
+{{/* Activity grid: one row per source, one column per month of the stats year.
+     Counts come from data/timeline.yaml, except GitHub, which comes from
+     data/stats.yaml. Shade is relative to each row's busiest month. */}}
+{{ $year := hugo.Data.stats.github.monthly.year }}
+{{ $sources := slice
+  (dict "key" "academy" "label" "htb academy" "rgb" "210 168 255")
+  (dict "key" "labs" "label" "htb labs" "rgb" "227 179 65")
+  (dict "key" "github" "label" "github" "rgb" "126 231 135")
+  (dict "key" "cert" "label" "certs" "rgb" "255 155 133")
+  (dict "key" "projects" "label" "projects" "rgb" "121 192 255")
+}}
+{{ $months := slice "jan" "feb" "mar" "apr" "may" "jun" "jul" "aug" "sep" "oct" "nov" "dec" }}
+<div class="scroll">
+<table class="activity">
+<thead><tr><th class="label">source</th>{{ range $months }}<th>{{ . }}</th>{{ end }}<th class="total">total</th></tr></thead>
+<tbody>
+{{ range $src := $sources }}
+  {{ $counts := slice }}
+  {{ range $m := seq 12 }}
+    {{ $c := 0 }}
+    {{ if eq $src.key "github" }}
+      {{ $c = index hugo.Data.stats.github.monthly.counts (sub $m 1) }}
+    {{ else }}
+      {{ $prefix := printf "%d-%02d" $year $m }}
+      {{ range hugo.Data.timeline }}
+        {{ $match := eq .source $src.key }}
+        {{ if eq $src.key "projects" }}{{ $match = in (slice "go" "self") .source }}{{ end }}
+        {{ if and $match (hasPrefix .date $prefix) }}{{ $c = add $c 1 }}{{ end }}
+      {{ end }}
+    {{ end }}
+    {{ $counts = $counts | append $c }}
+  {{ end }}
+  {{ $max := 0 }}{{ $total := 0 }}
+  {{ range $counts }}{{ if gt . $max }}{{ $max = . }}{{ end }}{{ $total = add $total . }}{{ end }}
+  <tr style="--c: {{ $src.rgb | safeCSS }}">
+    <td class="label" style="color: rgb({{ $src.rgb | safeCSS }})">{{ $src.label }}</td>
+    {{ range $counts }}
+      {{ if eq . 0 }}<td class="cell empty">·</td>
+      {{ else }}
+        {{ $pct := div (mul . 100) $max }}
+        {{ $lvl := 4 }}
+        {{ if le $pct 25 }}{{ $lvl = 1 }}{{ else if le $pct 50 }}{{ $lvl = 2 }}{{ else if le $pct 75 }}{{ $lvl = 3 }}{{ end }}
+        <td class="cell l{{ $lvl }}">{{ . }}</td>
+      {{ end }}
+    {{ end }}
+    <td class="total">{{ $total }}</td>
+  </tr>
+{{ end }}
+</tbody>
+</table>
+</div>
+<p class="note">{{ $year }} · shade = busiest month for that source · github counts commits, PRs and new repos · exercism has no per-solution dates yet</p>

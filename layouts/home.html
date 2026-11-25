@@ -1,0 +1,148 @@
+{{ define "main" }}
+{{ $s := hugo.Data.stats }}
+
+<header class="hero">
+<div>
+<h1 class="accent">~/kryodocs</h1>
+<p class="muted-strong">{{ site.Params.tagline }}</p>
+</div>
+<p class="muted">uptime: in IT since {{ site.Params.inITSince }}</p>
+</header>
+
+<section class="kpis" aria-label="Stats">
+<div class="panel">
+<h2 class="panel-title">[ htb ]</h2>
+<p class="big"><a href="{{ $s.htb.profile }}">Lvl {{ $s.htb.level }}</a></p>
+{{ partial "bar.html" (dict "value" $s.htb.xp "max" $s.htb.xp_next) }}
+<p class="small muted">{{ $s.htb.xp }} / {{ $s.htb.xp_next }} xp · {{ $s.htb.rank }}</p>
+</div>
+<div class="panel">
+<h2 class="panel-title">[ machines ]</h2>
+<p class="big">{{ $s.htb.machines }}</p>
+<p class="small muted">+ {{ $s.htb.sherlocks }} sherlock</p>
+</div>
+<div class="panel">
+<h2 class="panel-title">[ challenges ]</h2>
+<p class="big">{{ $s.htb.challenges }}</p>
+<p class="small muted">{{ $s.htb.challenge_breakdown }}</p>
+</div>
+<div class="panel">
+<h2 class="panel-title">[ academy ]</h2>
+<p class="big">{{ $s.htb.academy_modules }}</p>
+<p class="small muted">modules · {{ $s.htb.academy_paths }} paths</p>
+</div>
+{{ $certs := hugo.Data.certs }}
+<div class="panel">
+<h2 class="panel-title">[ certs ]</h2>
+<p class="big">{{ len $certs }}</p>
+<p class="small muted">{{ len (where $certs "status" "active") }} active · {{ len (where $certs "status" "expired") }} expired{{ with where $certs "status" "undated" }} · {{ len . }} undated{{ end }}</p>
+</div>
+</section>
+
+<div class="row-2">
+<section class="panel grow-3">
+<h2 class="panel-title">[ tail -n 8 journey.log ]</h2>
+<div class="scroll">
+{{ range first 8 (sort hugo.Data.timeline "date" "desc") }}{{ partial "log-line.html" . }}{{ end }}
+</div>
+<a class="more" href="{{ "journey/" | relURL }}">→ full journey</a>
+</section>
+
+<section class="panel grow-2">
+<h2 class="panel-title">[ certs ]</h2>
+<div class="scroll">
+{{ range $certs }}
+<p class="row">{{ if eq .status "active" }}<span class="accent">● active </span>{{ else if eq .status "expired" }}<span class="muted">○ expired</span>{{ else }}<span class="muted">◇ no date</span>{{ end }} {{ printf "%-18s" .name }}<span class="muted">{{ with .date }}{{ substr . 0 4 }}{{ else }}----{{ end }}</span></p>
+{{ end }}
+</div>
+</section>
+</div>
+
+<section class="panel">
+<h2 class="panel-title">[ git log --oneline career ]</h2>
+<div class="scroll">
+{{ range $i, $c := hugo.Data.career }}
+<p class="row"><span class="amber">{{ printf "%-9s" $c.years }}</span>  {{ if eq $i 0 }}<span class="accent">HEAD →</span> {{ else }}       {{ end }}{{ $c.title }}</p>
+{{ end }}
+</div>
+<a class="more" href="{{ site.Params.resume }}">→ full resume</a>
+</section>
+
+<div class="row-2">
+<section class="panel grow-1">
+<h2 class="panel-title">[ exercism ]</h2>
+<p class="row">{{ $s.exercism.track }} track  {{ partial "bar.html" (dict "value" $s.exercism.done "max" $s.exercism.total) }}  {{ $s.exercism.done }}/{{ $s.exercism.total }}</p>
+<div class="kv">
+<p><span class="muted">concepts...</span> {{ $s.exercism.concepts }}</p>
+<p><span class="muted">reputation.</span> {{ $s.exercism.reputation }}</p>
+<p><span class="muted">published..</span> {{ $s.exercism.published }}</p>
+<p><span class="muted">prs merged.</span> {{ $s.exercism.prs }}</p>
+</div>
+<p class="muted">contributed to the {{ $s.exercism.pr_note }}</p>
+<a class="more" href="{{ $s.exercism.profile }}">→ exercism profile</a>
+</section>
+
+<section class="panel grow-1">
+<h2 class="panel-title">[ github ]</h2>
+<div class="kv">
+<p><span class="muted">public repos</span> {{ $s.github.repos }}</p>
+<p><span class="muted">go repos....</span> {{ $s.github.go_repos }}</p>
+<p><span class="muted">last year...</span> {{ $s.github.contributions_year }} contribs</p>
+<p><span class="muted">since.......</span> {{ $s.github.since }}</p>
+</div>
+<p class="muted">recent pushes</p>
+{{ range $s.github.recent }}
+<p class="row"><span class="muted">{{ .date }}</span>  <a href="{{ site.Params.github }}/{{ .name }}">{{ .name }}</a></p>
+{{ end }}
+</section>
+</div>
+
+<div class="row-2">
+<section class="panel grow-3">
+<h2 class="panel-title">[ ls -l writeups/ ]</h2>
+{{ $writeups := where site.RegularPages "Section" "writeups" }}
+{{ with $writeups }}
+<div class="scroll">
+<table class="ls">
+<thead><tr><th>name</th><th>type</th><th>os/cat</th><th>diff</th><th>date</th></tr></thead>
+<tbody>
+{{ range first 6 . }}
+<tr><td><a href="{{ .RelPermalink }}">{{ .File.ContentBaseName }}.md</a></td><td>{{ .Params.kind }}</td><td>{{ .Params.os }}</td><td>{{ .Params.difficulty }}</td><td class="muted">{{ .Date.Format "2006-01-02" }}</td></tr>
+{{ end }}
+</tbody>
+</table>
+</div>
+<a class="more" href="{{ "writeups/" | relURL }}">→ all write-ups</a>
+{{ else }}
+<p class="muted">total 0</p>
+<p class="muted">write-ups for retired machines and challenges land here.</p>
+{{ end }}
+</section>
+
+<section class="panel grow-2">
+<h2 class="panel-title">[ projects ]</h2>
+{{ $tag := dict "done" "accent" "next" "amber" "planned" "muted" }}
+{{ range hugo.Data.projects }}
+<p class="row">{{ with .page }}<a href="{{ . | relURL }}">{{ end }}{{ printf "%-10s" .name }}{{ with .page }}</a>{{ end }} <span class="{{ index $tag .status }}">[{{ .status }}]</span> <span class="muted">{{ .summary }}</span></p>
+{{ end }}
+</section>
+</div>
+
+<section class="panel">
+<h2 class="panel-title">[ cat bookshelf.txt ]</h2>
+{{ $books := hugo.Data.books }}
+<p class="muted">{{ len $books }} books · {{ len (where $books "status" "read") }} read · {{ len (where $books "status" "reading") }} reading · {{ len (where $books "status" "shelf") }} on the shelf</p>
+<div class="scroll">
+{{ range where $books "status" "reading" }}<p class="row"><span class="amber">▶ reading </span> {{ .title }} <span class="muted">· {{ .author }}</span></p>{{ end }}
+{{ range where $books "status" "shelf" }}<p class="row"><span class="muted">□ shelf   </span> {{ .title }} <span class="muted">· {{ .author }}</span></p>{{ end }}
+</div>
+<a class="more" href="{{ "books/" | relURL }}">→ full bookshelf</a>
+</section>
+
+<section class="panel">
+<h2 class="panel-title">[ activity · by source ]</h2>
+{{ partial "activity.html" . }}
+</section>
+
+{{ partial "prompt.html" "" }}
+{{ end }}

@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ partial "prompt.html" "cat bookshelf.txt" }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+{{ $books := hugo.Data.books }}
+<section class="panel">
+<h2 class="panel-title">[ now ]</h2>
+{{ range where $books "status" "reading" }}<p class="row"><span class="amber">▶ reading </span> {{ .title }} <span class="muted">· {{ .author }}</span></p>{{ end }}
+{{ range where $books "status" "shelf" }}<p class="row"><span class="muted">□ shelf   </span> {{ .title }} <span class="muted">· {{ .author }}</span></p>{{ end }}
+</section>
+{{ $topics := slice (dict "key" "go" "color" "blue") (dict "key" "gamedev-graphics" "color" "purple") (dict "key" "security" "color" "coral") (dict "key" "ai" "color" "amber") (dict "key" "other" "color" "accent") }}
+<section class="panel">
+<h2 class="panel-title">[ read ]</h2>
+<div class="shelf">
+{{ range $topics }}
+{{ $t := . }}
+{{ with where (where $books "topic" $t.key) "status" "read" }}
+<div>
+<h3 class="{{ $t.color }} shelf-topic">{{ $t.key }}/</h3>
+{{ range . }}<p>{{ .title }} <span class="muted">· {{ .author }}</span></p>{{ end }}
+</div>
+{{ end }}
+{{ end }}
+</div>
+</section>
+{{ end }}

@@ -1,0 +1,10 @@
+<nav class="tmux" aria-label="Sections">
+<div class="tabs">
+{{ $current := . }}
+{{ range $i, $m := site.Menus.main }}
+{{ $active := or ($current.IsMenuCurrent "main" $m) ($current.HasMenuCurrent "main" $m) }}
+<a href="{{ $m.URL }}"{{ if $active }} class="active" aria-current="page"{{ end }}>{{ $i }}:{{ $m.Name }}{{ if $active }}*{{ end }}</a>
+{{ end }}
+</div>
+<span class="muted">{{ site.Params.handle }}@kryodocs</span>
+</nav>

@@ -1,0 +1,73 @@
+# status: reading | shelf | read
+- title: Web Scraping with Go
+  author: Julian Lornfeld
+  topic: go
+  status: reading
+- title: Golang Arena
+  author: Caleb Veynor
+  topic: go
+  status: shelf
+- title: Learn Go Through Projects
+  author: Julian Lornfeld
+  topic: go
+  status: read
+- title: Go for Game Servers
+  author: Jason Gran
+  topic: go
+  status: read
+- title: Go for Games
+  author: Kayden Lachlan
+  topic: go
+  status: read
+- title: Powerful Command-Line Applications in Go
+  author: Ricardo Gerardi
+  topic: go
+  status: read
+- title: The Nature of Code
+  author: Daniel Shiffman
+  topic: gamedev-graphics
+  status: read
+- title: Generative Design
+  author: Hartmut Bohnacker, Benedikt Groß, Julia Laub, Claudius Lazzeroni
+  topic: gamedev-graphics
+  status: read
+- title: Mazes for Programmers
+  author: Jamis Buck
+  topic: gamedev-graphics
+  status: read
+- title: The Ray Tracer Challenge
+  author: Jamis Buck
+  topic: gamedev-graphics
+  status: read
+- title: Game Programming Patterns
+  author: Robert Nystrom
+  topic: gamedev-graphics
+  status: read
+- title: Game Development with Blender and Godot
+  author: Kumsal Obuz
+  topic: gamedev-graphics
+  status: read
+- title: The Spacecraft Hacker's Handbook
+  author: Andrzej Olchawa, Milenko Starcik
+  topic: security
+  status: read
+- title: Practical AI Security
+  author: Harriet Farlow
+  topic: security
+  status: read
+- title: Agentic AI Architectural Patterns 2026
+  author: Isaac Vance
+  topic: ai
+  status: read
+- title: The Phoenix Project
+  author: Gene Kim
+  topic: other
+  status: read
+- title: Web Design with HTML, CSS, JavaScript and jQuery
+  author: Jon Duckett
+  topic: other
+  status: read
+- title: The Signal Path
+  author: KC Ramo
+  topic: other
+  status: read
