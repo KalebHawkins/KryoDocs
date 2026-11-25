@@ -42,3 +42,8 @@ enableRobotsTXT = true
     name = "books"
     pageRef = "/books"
     weight = 6
+
+# HTML minification collapses runs of spaces, and the terminal panels
+# align columns with them. CSS and JS are still minified.
+[minify]
+  disableHTML = true
