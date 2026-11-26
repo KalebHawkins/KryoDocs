@@ -3,12 +3,13 @@
   status: done
   summary: hexdump in go
   page: /projects/hxd/
+- name: warcat
+  status: done
+  summary: automates the jerry box in go
+  page: https://github.com/KalebHawkins/warcat
 - name: kryostats
   status: next
   summary: stats for this site, nightly
 - name: proclist
   status: planned
   summary: processes + modules
-- name: warcat
-  status: planned
-  summary: automates the Jerry box end to end

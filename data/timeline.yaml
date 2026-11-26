@@ -234,3 +234,6 @@
 - date: "2026-11-26"
   source: labs
   text: "Machine: Jerry"
+- date: "2026-11-26"
+  source: go
+  text: "warcat complete: automates the Jerry box in Go"
