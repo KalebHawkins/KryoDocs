@@ -9,3 +9,6 @@
 - name: proclist
   status: planned
   summary: processes + modules
+- name: warcat
+  status: planned
+  summary: automates the Jerry box end to end

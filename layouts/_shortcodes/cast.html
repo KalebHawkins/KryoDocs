@@ -1,0 +1,29 @@
+{{- /* Embed an asciinema recording.
+       Usage: {{< cast >}} uses the page's first .cast resource.
+              {{< cast "session.cast" >}} names a resource.
+       Player assets are self-hosted in static/asciinema/. */ -}}
+{{- $name := .Get 0 -}}
+{{- $res := "" -}}
+{{- if $name -}}
+  {{- $res = .Page.Resources.GetMatch $name -}}
+{{- else -}}
+  {{- $res = .Page.Resources.GetMatch "*.cast" -}}
+{{- end -}}
+{{- if not $res -}}
+  {{- errorf "cast shortcode in %s: no .cast resource found (name=%q)" .Page.File.Path $name -}}
+{{- end -}}
+{{- $id := printf "cast-%d" .Ordinal -}}
+{{- if not (.Page.Store.Get "castAssets") -}}
+<link rel="stylesheet" href="{{ "asciinema/asciinema-player.css" | relURL }}">
+<script src="{{ "asciinema/asciinema-player.min.js" | relURL }}"></script>
+{{- .Page.Store.Set "castAssets" true -}}
+{{- end -}}
+<div class="cast" id="{{ $id }}"></div>
+<script>
+AsciinemaPlayer.create({{ $res.RelPermalink }}, document.getElementById({{ $id }}), {
+  poster: "npt:0:03",
+  idleTimeLimit: 2,
+  fit: "width",
+  terminalFontFamily: "'JetBrains Mono', ui-monospace, monospace"
+});
+</script>
