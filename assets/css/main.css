@@ -69,6 +69,7 @@ p { margin: 0; }
 
 .scroll { overflow-x: auto; }
 .row { white-space: pre; }
+.row-wrap { white-space: pre-wrap; overflow-wrap: anywhere; }
 .more { display: inline-block; margin-top: 10px; }
 .kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0 20px; margin: 10px 0; }
 .kv p { white-space: nowrap; }

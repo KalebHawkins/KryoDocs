@@ -123,7 +123,7 @@
 <h2 class="panel-title">[ projects ]</h2>
 {{ $tag := dict "done" "accent" "next" "amber" "planned" "muted" }}
 {{ range hugo.Data.projects }}
-<p class="row">{{ with .page }}<a href="{{ . | relURL }}">{{ end }}{{ printf "%-10s" .name }}{{ with .page }}</a>{{ end }} <span class="{{ index $tag .status }}">[{{ .status }}]</span> <span class="muted">{{ .summary }}</span></p>
+<p class="row row-wrap">{{ with .page }}<a href="{{ . | relURL }}">{{ end }}{{ printf "%-10s" .name }}{{ with .page }}</a>{{ end }} <span class="{{ index $tag .status }}">[{{ .status }}]</span> <span class="muted">{{ .summary }}</span></p>
 {{ end }}
 </section>
 </div>
