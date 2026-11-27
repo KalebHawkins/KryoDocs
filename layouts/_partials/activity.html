@@ -1,11 +1,9 @@
-{{/* Activity grid: one row per source, one column per month of the stats year.
-     Counts come from data/timeline.yaml, except GitHub, which comes from
-     data/stats.yaml. Shade is relative to each row's busiest month. */}}
-{{ $year := hugo.Data.stats.github.monthly.year }}
+{{/* Activity grid: one row per source, one column per month of the activity year.
+     Counts come from data/timeline.yaml. Shade is relative to each row's busiest month. */}}
+{{ $year := hugo.Data.stats.activity_year }}
 {{ $sources := slice
   (dict "key" "academy" "label" "htb academy" "rgb" "210 168 255")
   (dict "key" "labs" "label" "htb labs" "rgb" "227 179 65")
-  (dict "key" "github" "label" "github" "rgb" "126 231 135")
   (dict "key" "cert" "label" "certs" "rgb" "255 155 133")
   (dict "key" "projects" "label" "projects" "rgb" "121 192 255")
 }}
@@ -18,15 +16,11 @@
   {{ $counts := slice }}
   {{ range $m := seq 12 }}
     {{ $c := 0 }}
-    {{ if eq $src.key "github" }}
-      {{ $c = index hugo.Data.stats.github.monthly.counts (sub $m 1) }}
-    {{ else }}
-      {{ $prefix := printf "%d-%02d" $year $m }}
-      {{ range hugo.Data.timeline }}
-        {{ $match := eq .source $src.key }}
-        {{ if eq $src.key "projects" }}{{ $match = in (slice "go" "self") .source }}{{ end }}
-        {{ if and $match (hasPrefix .date $prefix) }}{{ $c = add $c 1 }}{{ end }}
-      {{ end }}
+    {{ $prefix := printf "%d-%02d" $year $m }}
+    {{ range hugo.Data.timeline }}
+      {{ $match := eq .source $src.key }}
+      {{ if eq $src.key "projects" }}{{ $match = in (slice "go" "self") .source }}{{ end }}
+      {{ if and $match (hasPrefix .date $prefix) }}{{ $c = add $c 1 }}{{ end }}
     {{ end }}
     {{ $counts = $counts | append $c }}
   {{ end }}
@@ -49,4 +43,4 @@
 </tbody>
 </table>
 </div>
-<p class="note">{{ $year }} · shade = busiest month for that source · github counts commits, PRs and new repos</p>
+<p class="note">{{ $year }} · shade = busiest month for that source</p>

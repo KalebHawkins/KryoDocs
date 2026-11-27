@@ -1,6 +1,7 @@
 # Numbers shown on the home page. Edited by hand for now; kryostats will
 # generate this file later.
 updated: "2026-11-25"
+activity_year: 2026
 
 htb:
   profile: https://app.hackthebox.com/users/2115544
@@ -20,11 +21,6 @@ github:
   since: 2015
   repos: 11
   go_repos: 8
-  contributions_year: 111
-  # Contributions per month for the activity grid, January first.
-  monthly:
-    year: 2026
-    counts: [0, 16, 0, 6, 0, 0, 0, 0, 15, 17, 57, 0]
   recent:
     - name: hxd
       date: "2026-11-25"
