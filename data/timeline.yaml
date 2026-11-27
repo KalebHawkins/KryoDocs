@@ -1,4 +1,4 @@
-# Timeline entries, oldest first. source: cert | academy | labs | exercism | go | self
+# Timeline entries, oldest first. source: cert | academy | labs | go | self
 
 - date: "2013-05-23"
   source: cert
@@ -15,27 +15,6 @@
 - date: "2019-06-05"
   source: cert
   text: "CompTIA CySA+"
-- date: "2021-11-05"
-  source: exercism
-  text: "PR merged: go#1942, gross-store test case"
-- date: "2021-11-09"
-  source: exercism
-  text: "PR merged: go#1951, Elon's Toys & Need for Speed"
-- date: "2021-11-10"
-  source: exercism
-  text: "PRs merged: powershell#161, #164, #165, #167 (getting-started guide, configlet, CI)"
-- date: "2021-11-12"
-  source: exercism
-  text: "PRs merged: powershell#166 (Accumulate exercise), #168 (run-tests CI)"
-- date: "2021-11-17"
-  source: exercism
-  text: "PRs merged: go#1966 (vehicle-purchase fix), powershell#170 (Collatz Conjecture exercise)"
-- date: "2021-11-19"
-  source: exercism
-  text: "PR merged: powershell#171, Accumulate test cases"
-- date: "2024-05-19"
-  source: exercism
-  text: "Joined the Go track"
 - date: "2024-10-18"
   source: academy
   text: "Intro to Academy"

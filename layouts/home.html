@@ -70,19 +70,6 @@
 
 <div class="row-2">
 <section class="panel grow-1">
-<h2 class="panel-title">[ exercism ]</h2>
-<p class="row">{{ $s.exercism.track }} track  {{ partial "bar.html" (dict "value" $s.exercism.done "max" $s.exercism.total) }}  {{ $s.exercism.done }}/{{ $s.exercism.total }}</p>
-<div class="kv">
-<p><span class="muted">concepts...</span> {{ $s.exercism.concepts }}</p>
-<p><span class="muted">reputation.</span> {{ $s.exercism.reputation }}</p>
-<p><span class="muted">published..</span> {{ $s.exercism.published }}</p>
-<p><span class="muted">prs merged.</span> {{ $s.exercism.prs }}</p>
-</div>
-<p class="muted">contributed to the {{ $s.exercism.pr_note }}</p>
-<a class="more" href="{{ $s.exercism.profile }}">→ exercism profile</a>
-</section>
-
-<section class="panel grow-1">
 <h2 class="panel-title">[ github ]</h2>
 <div class="kv">
 <p><span class="muted">public repos</span> {{ $s.github.repos }}</p>
